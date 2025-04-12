@@ -1,24 +1,30 @@
-### Title: Assignment4
+# 🧬 Assignment 4 — PWM-Based Transcription Factor Binding Site Analysis
 
-### Author: Tejaswini Repala
+**👩‍💻 Author:** Tejaswini Repala  
+**📅 Date:** February 12, 2024  
+**💻 Language:** Python 3.11.4  
 
-### Date: February 12, 2024
+---
 
-### Programming Language & Version: Python 3.11.4
+## 📖 Description
 
-### Description:
+This project identifies potential **transcription factor binding sites** for **ArgR** in *Escherichia coli K12* by constructing a **Position Weight Matrix (PWM)** from a nucleotide counts matrix.
 
-This script performs transcription factor binding site identification using a Position Weight Matrix (PWM) derived from a counts matrix for a specific transcription factor known as argR. The script calculates the PWM from the provided counts matrix by augmenting counts to avoid zero values and then uses this matrix to scan the upstream regulatory regions of genes in the Escherichia coli K12 genome. The analysis identifies potential binding sites by comparing gene sequences to the PWM and outputs the top 30 gene IDs with the highest similarity scores, suggesting these regions as potential targets for argR binding.
+The analysis follows these steps:
+- Constructs a PWM from the counts matrix (with pseudocounts to avoid log(0))
+- Normalizes to frequency and calculates log2-based scores
+- Scans upstream regulatory regions of genes using a sliding window
+- Outputs the **top 30 gene IDs** with the highest PWM similarity scores — potential ArgR binding sites
 
-### Dependencies:
+---
 
-NumPy: For numerical operations including matrix calculations.
+## 📦 Dependencies
 
-Pandas: For data handling and DataFrame manipulation.
+Install dependencies using:
 
-These dependencies can be installed using the following command:
+```bash
+pip install numpy pandas
 
-    pip install numpy pandas
     
 ### Input:
 argR-counts-matrix.txt
